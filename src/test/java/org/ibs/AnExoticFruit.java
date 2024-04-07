@@ -1,5 +1,6 @@
 package org.ibs;
 
+import org.ibs.base.BaseTests;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,24 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class AnExoticFruit {
-    static WebDriver driver;
-
-    @BeforeAll
-    static void openGooglePage() {
-        driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver",
-                "A:\\QA\\Java\\Тестирование Java\\Проекты IDE\\qa-practice-3\\src\\test\\resources\\chromedriver.exe");
-
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-    }
-
-    @AfterAll
-    static void tearDown() {
-        driver.quit();
-    }
+public class AnExoticFruit extends BaseTests {
 
     @Test
     void openPageAndNavigateToFoodCategory(){
@@ -62,7 +46,7 @@ public class AnExoticFruit {
         buttonSave.click();
 
         try{
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
